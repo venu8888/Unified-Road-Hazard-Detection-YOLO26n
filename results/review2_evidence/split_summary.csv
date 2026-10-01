@@ -1,0 +1,10 @@
+class_id,class_name,train_boxes,val_boxes,test_boxes,total_boxes,train_pct,val_pct,test_pct
+0,longitudinal_crack,16111,4535,2149,22795,70.68,19.89,9.43
+1,transverse_crack,7106,1976,1025,10107,70.31,19.55,10.14
+2,alligator_crack,5505,1557,758,7820,70.4,19.91,9.69
+3,repaired_crack,316,60,41,417,75.78,14.39,9.83
+4,pothole,2731,744,408,3883,70.33,19.16,10.51
+5,manhole_good,484,138,63,685,70.66,20.15,9.2
+6,manhole_broken,128,37,18,183,69.95,20.22,9.84
+7,manhole_loose,326,100,53,479,68.06,20.88,11.06
+8,manhole_uncovered,203,57,29,289,70.24,19.72,10.03

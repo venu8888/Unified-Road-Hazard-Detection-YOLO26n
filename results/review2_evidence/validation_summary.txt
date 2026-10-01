@@ -1,0 +1,31 @@
+================================================================================
+DATASET CLEANING & VALIDATION SUMMARY REPORT (OPTION C - 9 CLASSES)
+================================================================================
+
+Total Processed Images Checked:     19,200
+Passed All Validation Checks:       19,200 (100.00%)
+Quarantined Files:                  0
+Total Valid Bounding Boxes:         46,658
+
+Option C Taxonomy Enforced (Classes 0..8):
+  0: longitudinal_crack
+  1: transverse_crack
+  2: alligator_crack
+  3: repaired_crack
+  4: pothole
+  5: manhole_good
+  6: manhole_broken
+  7: manhole_loose
+  8: manhole_uncovered
+
+Validation Criteria Enforced:
+  [x] Image readable and uncorrupted
+  [x] Paired YOLO annotation file exists
+  [x] Contiguous and valid class IDs [0..8]
+  [x] Normalized center coordinates [0.0 <= xc, yc <= 1.0]
+  [x] Valid positive dimensions [0.0 < bw, bh <= 1.0]
+  [x] Zero malformed tokens or trailing characters
+
+STATUS: CLEAN — 100% of processed images and labels passed validation.
+Zero files moved to quarantine.
+================================================================================

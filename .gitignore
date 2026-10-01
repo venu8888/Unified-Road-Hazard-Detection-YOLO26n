@@ -1,0 +1,35 @@
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Dataset caches, logs and dataset folder (dataset transferred separately via ZIP)
+*.cache
+*.log
+processed/
+processed_conversion_log.csv
+
+# Raw source datasets (transferred package uses harmonized processed/ dataset)
+Manhole Cover Dataset YOLO.v4i.yolo26/
+N-RDD2024Road damage and defects/
+quarantine/
+weights/
+runs/
+
+# Root models and backups
+yolo11n.pt
+yolo26n.pt
+configs/data.yaml.original
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

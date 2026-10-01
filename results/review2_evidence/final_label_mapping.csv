@@ -1,0 +1,16 @@
+source_dataset,original_class,project_class_name,final_training_class_id,training_status,notes
+N-RDD2024,D00,longitudinal_crack,0,IN_SCOPE_TRAIN,Road crack along traffic direction
+N-RDD2024,D10,transverse_crack,1,IN_SCOPE_TRAIN,Road crack perpendicular to traffic direction
+N-RDD2024,D20,alligator_crack,2,IN_SCOPE_TRAIN,Fatigue/crocodile interconnected cracking
+N-RDD2024,D30,repaired_crack,3,IN_SCOPE_TRAIN,Sealed/repaired asphalt crack line
+N-RDD2024,D40,pothole,4,IN_SCOPE_TRAIN,Road surface pothole/cavity
+Supplementary_Roboflow,Good,manhole_good,5,IN_SCOPE_TRAIN,Structurally intact flush manhole cover
+Supplementary_Roboflow,Broken,manhole_broken,6,IN_SCOPE_TRAIN,Cracked or fractured cover/surrounding asphalt
+Supplementary_Roboflow,Lose,manhole_loose,7,IN_SCOPE_TRAIN,Displaced loose or misaligned manhole cover
+Supplementary_Roboflow,Uncovered,manhole_uncovered,8,IN_SCOPE_TRAIN,Open chamber/missing manhole cover (severe danger)
+N-RDD2024,D70,manhole_generic,-1,EXCLUDED_FROM_TRAINING,Generic manhole cover; retained for qualitative dataset comparison only
+Supplementary_Roboflow,circle,circle,-1,EXCLUDED_FROM_TRAINING,Verified absent from dataset export
+N-RDD2024,D50,crosswalk_marking_blur,-1,EXCLUDED_FROM_TRAINING,Out-of-scope non-hazard road marking
+N-RDD2024,D60,line_blur,-1,EXCLUDED_FROM_TRAINING,Out-of-scope non-hazard lane line
+N-RDD2024,D80,other_defect,-1,EXCLUDED_FROM_TRAINING,Out-of-scope non-hazard defect
+N-RDD2024,D90,other_marking,-1,EXCLUDED_FROM_TRAINING,Out-of-scope non-hazard marking

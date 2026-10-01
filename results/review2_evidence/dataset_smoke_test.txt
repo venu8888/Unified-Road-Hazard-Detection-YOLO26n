@@ -1,0 +1,14 @@
+==================================================
+YOLO DATASET LOAD SMOKE TEST REPORT (OPTION C - 9 CLASSES)
+==================================================
+Config File: configs/data.yaml
+Root Path: C:/Users/lucky/Downloads/DL PBL/processed
+Classes (9): {0: 'longitudinal_crack', 1: 'transverse_crack', 2: 'alligator_crack', 3: 'repaired_crack', 4: 'pothole', 5: 'manhole_good', 6: 'manhole_broken', 7: 'manhole_loose', 8: 'manhole_uncovered'}
+Split [train]: 13440 images, 13440 labels (Path: C:/Users/lucky/Downloads/DL PBL/processed\train/images)
+Split [val]: 3840 images, 3840 labels (Path: C:/Users/lucky/Downloads/DL PBL/processed\val/images)
+Split [test]: 1920 images, 1920 labels (Path: C:/Users/lucky/Downloads/DL PBL/processed\test/images)
+
+Random Sample Verification: PASSED (images 640x640, valid non-empty labels, class IDs in 0..8)
+YOLO26n Model Instantiation: PASSED (YOLO)
+Training Status: STOPPED AS INSTRUCTED (No training performed)
+==================================================

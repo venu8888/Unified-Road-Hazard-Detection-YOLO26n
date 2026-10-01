@@ -1,0 +1,17 @@
+# YOLO26n Dataset Configuration (Stage 1 Option B - 6 Primary Hazard Classes)
+path: C:/Users/lucky/Downloads/DL PBL/processed
+train: train/images
+val: val/images
+test: test/images
+
+# Number of classes
+nc: 6
+
+# Class names mapping (contiguous 0..5)
+names:
+  0: longitudinal_crack
+  1: transverse_crack
+  2: alligator_crack
+  3: repaired_crack
+  4: pothole
+  5: manhole

@@ -1,0 +1,56 @@
+================================================================================
+DEEP LEARNING PROJECT 4 — COMPREHENSIVE DATASET AUDIT SUMMARY
+Review 2 Pre-Training Audit
+================================================================================
+
+1. PRIMARY DATASET: N-RDD2024 (Road Damage Detection 2024)
+--------------------------------------------------------------------------------
+Total Source Training/Validation Images: 18,995
+Total Annotation Files (VOC XML):        18,995
+Image Formats/Extensions:                ['.jpg']
+Image Dimensions (Resolution):           {(640, 640): 18995}
+Corrupt / Unreadable Images:             0
+Empty Annotations (0 bounding boxes):    0
+Invalid Bounding Boxes (out-of-bounds):  721
+Duplicate Basenames across archives:     0
+Bounding-Box Instances Per Class:
+  - D00   : 22,795 instances (41.04%)
+  - D10   : 10,107 instances (18.20%)
+  - D20   :  7,820 instances (14.08%)
+  - D60   :  4,993 instances ( 8.99%)
+  - D40   :  3,883 instances ( 6.99%)
+  - D70   :  3,712 instances ( 6.68%)
+  - D80   :    905 instances ( 1.63%)
+  - D50   :    870 instances ( 1.57%)
+  - D30   :    417 instances ( 0.75%)
+  - D90   :     44 instances ( 0.08%)
+Total N-RDD Ground-Truth Bounding Boxes: 55,546
+Unannotated Challenge Test Images:       {'China_MotorBike': 500, 'Czech': 709, 'India': 309, 'Japan': 465, 'Norway': 2040, 'United_States': 1002}
+
+2. SUPPLEMENTARY DATASET: Manhole Cover Dataset (Roboflow v4)
+--------------------------------------------------------------------------------
+Total Source Images:                     1,427
+Total Annotation Files (YOLO TXT):       1,427
+Annotation Format:                       YOLO TXT (normalized cx, cy, w, h)
+Image Dimensions:                        {(640, 640): 1427}
+Corrupt / Unreadable Images:             0
+Empty Annotations:                       27
+Invalid Bounding Boxes:                  0
+Duplicate Basenames:                     0
+Bounding-Box Instances Per Class:
+  - Good        :    685 instances (41.87%)
+  - Lose        :    479 instances (29.28%)
+  - Uncovered   :    289 instances (17.67%)
+  - Broken      :    183 instances (11.19%)
+Total Manhole Ground-Truth Boxes:        1,636
+Instances per split:                     {'train': {'Good': 589, 'Lose': 479, 'Broken': 138, 'Uncovered': 289}, 'valid': {'Good': 69, 'Broken': 45}, 'test': {'Good': 27}}
+
+3. CRITICAL AUDIT FINDINGS ON TARGET TAXONOMY & CIRCLE CLASS
+--------------------------------------------------------------------------------
+N-RDD2024 Taxonomy:
+  - In-Scope: D00 (Longitudinal), D10 (Transverse), D20 (Alligator), D30 (Repaired), D40 (Pothole), D70 (Manhole)
+  - Out-of-Scope: D50 (Crosswalk blur/marking), D60 (White/yellow line blur), D80, D90
+Supplementary Manhole Taxonomy:
+  - Ground-truth classes present in actual dataset: ['Broken', 'Good', 'Lose', 'Uncovered']
+  - 'circle' class presence: VERIFIED ABSENT. The Roboflow dataset version v4 does not contain any 'circle' label.
+================================================================================

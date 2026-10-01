@@ -1,0 +1,16 @@
+==================================================
+PHASE 0 - ENVIRONMENT VERIFICATION
+==================================================
+Python Executable: C:\Users\lucky\Downloads\DL PBL\.venv\Scripts\python.exe
+Python Version: 3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]
+Platform: Windows-11-10.0.26200-SP0
+PyTorch Version: 2.14.0+cu130
+Torchvision Version: 0.29.0+cu130
+CUDA Available: True
+GPU Device Count: 1
+GPU Device Name: NVIDIA GeForce RTX 4050 Laptop GPU
+GPU Total VRAM: 6.0 GB
+GPU Compute Capability: 8.9
+Ultralytics Version: 8.4.170
+GPU Smoke Test: PASSED (matmul tensor shape: (100, 100))
+YOLO26n Model Instantiation: PASSED (YOLO, weights: yolo26n.pt)

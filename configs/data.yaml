@@ -1,0 +1,20 @@
+# YOLO26n Dataset Configuration (Option C - 9 Target Road Hazard Classes)
+path: processed
+train: train/images
+val: val/images
+test: test/images
+
+# Number of classes
+nc: 9
+
+# Contiguous 0..8 Class Names Mapping
+names:
+  0: longitudinal_crack
+  1: transverse_crack
+  2: alligator_crack
+  3: repaired_crack
+  4: pothole
+  5: manhole_good
+  6: manhole_broken
+  7: manhole_loose
+  8: manhole_uncovered

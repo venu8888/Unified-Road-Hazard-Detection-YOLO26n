@@ -1,0 +1,72 @@
+# Training Augmentation Configuration for YOLO26n Road Hazard Detection
+# Project: Unified Road Hazard Detection using YOLO26n
+# Note: Augmentations are applied ONLY during training.
+# Validation and Test sets MUST remain strictly unaugmented for uncorrupted metric reporting.
+# IMPORTANT: Hypothesized benefits are design rationales; actual performance impact will be verified experimentally.
+
+augmentations:
+  # 1. Mosaic Augmentation
+  mosaic:
+    parameter: mosaic
+    value: 1.0
+    reason_for_use: "Combines 4 training images into one mosaic canvas. Exposes model to multi-scale contexts, forces awareness of partial roadway views, and enriches batch diversity for small crack and pothole targets."
+    experimental_status: "Configured for training ablation; empirical impact to be measured during Review 3."
+
+  # 2. Random Scale & Cropping
+  scale:
+    parameter: scale
+    value: 0.5
+    reason_for_use: "Randomly scales images by +/- 50%, providing object-size variation to train invariance against camera mounting heights, vehicle pitch, and varying distance from road defects."
+    experimental_status: "Conservative scale chosen to prevent loss of fine-line crack details."
+
+  # 3. Horizontal Flip
+  fliplr:
+    parameter: fliplr
+    value: 0.5
+    reason_for_use: "Simulates bilateral road geometry invariance (e.g. left vs right lane driving, opposite roadside positions) while preserving downward road perspective."
+    experimental_status: "Standard spatial invariant; vertical flip is strictly disabled (flipud: 0.0) as road hazards are ground-plane objects."
+
+  flipud:
+    parameter: flipud
+    value: 0.0
+    reason_for_use: "Vertical flipping is disabled (0.0) because roadway perspectives and camera mounting maintain strict gravity/horizon orientation."
+    experimental_status: "Fixed constraint."
+
+  # 4. Color & Lighting Variation (HSV)
+  hsv_h:
+    parameter: hsv_h
+    value: 0.015
+    reason_for_use: "Subtle +/- 1.5% hue jitter simulates slight road surface tint changes (asphalt aging, tar variations) without altering fundamental asphalt/hazard color tones."
+    experimental_status: "Ablation parameter for asphalt color invariance."
+
+  hsv_s:
+    parameter: hsv_s
+    value: 0.4
+    reason_for_use: "Moderate saturation jitter (+/- 40%) simulates wet vs dry road reflectivity, rain gloss, and seasonal asphalt fading."
+    experimental_status: "Design rationale to be validated across wet/dry road subsets."
+
+  hsv_v:
+    parameter: hsv_v
+    value: 0.4
+    reason_for_use: "Value/brightness jitter (+/- 40%) simulates extreme lighting variations including bright midday sunlight, overcast conditions, under-bridge shadows, and dusk."
+    experimental_status: "Designed for illumination robustness."
+
+  # 5. Conservative MixUp
+  mixup:
+    parameter: mixup
+    value: 0.1
+    reason_for_use: "Blends pairs of images at low probability (10%) to provide linear feature space regularization and combat overconfidence on dominant crack categories."
+    experimental_status: "Conservative value chosen to prevent severe ghosting on thin cracks."
+
+  # 6. Perspective and Shear Constraints
+  degrees:
+    parameter: degrees
+    value: 0.0
+    reason_for_use: "In-plane rotation disabled because dashcam/vehicle cameras maintain consistent upright orientation."
+    experimental_status: "Fixed constraint."
+
+  shear:
+    parameter: shear
+    value: 0.0
+    reason_for_use: "Shear disabled to avoid distorting crack aspect ratios and aspect morphology."
+    experimental_status: "Fixed constraint."

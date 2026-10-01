@@ -1,0 +1,45 @@
+================================================================================
+MANUAL REVIEW AND DECISION LOG — REVIEW 2 PRE-TRAINING STAGE
+================================================================================
+
+ISSUE 1: "circle" CLASS VERIFICATION IN SUPPLEMENTARY MANHOLE DATASET
+--------------------------------------------------------------------------------
+Audit Status: VERIFIED ABSENT FROM RAW DATA
+Details:
+- The downloaded supplementary dataset is Roboflow export version 4
+  (project: manhole-cover-dataset-yolo, version 4).
+- The dataset configuration file (data.yaml) strictly defines nc: 4 with:
+  names: ['Broken', 'Good', 'Lose', 'Uncovered']
+- A full scan across all 1,427 label TXT files revealed class IDs 0, 1, 2, 3 only.
+- 0 bounding boxes or label references exist for "circle".
+Decision Made / Action:
+- In strict adherence to Safety Rule 4 ("Never invent labels") and Phase 4/8/9
+  rules ("DO NOT GUESS"), "circle" is NOT included in the training taxonomy.
+- A visual notice has been saved at:
+  results/manhole_examples/supplement_circle_examples.png
+
+ISSUE 2: ARCHITECTURAL RESOLUTION OF D70 (GENERIC MANHOLE) VS MANHOLE CONDITIONS
+--------------------------------------------------------------------------------
+Audit Status: SEMANTIC HIERARCHY CONFLICT IDENTIFIED
+Details:
+- Primary Dataset (N-RDD2024):
+  D70 denotes a generic "manhole cover" object detector. Bounding boxes cover
+  the manhole regardless of whether it is sound, cracked, sunken, or displaced.
+  Instance count: 3,712 boxes across 2,767 images.
+- Supplementary Dataset (Roboflow v4):
+  Contains fine-grained condition annotations for manholes:
+  - Good (685 boxes)
+  - Broken (183 boxes)
+  - Lose [Loose] (479 boxes)
+  - Uncovered (289 boxes)
+- Semantic Conflict:
+  Mapping N-RDD D70 -> "manhole_good" would be false and unsupported (violating
+  Safety Rule 7).
+  Collapsing all supplementary condition classes into generic D70 would discard
+  the exact critical condition labels needed to detect loose, broken, or uncovered
+  hazards.
+Options and Recommendation:
+- See results/ARCHITECTURE_DECISION.md for full analysis and recommendation:
+  Hierarchical two-stage architecture or unified 10-class taxonomy with D70 as
+  "manhole_unspecified / generic" alongside specific hazard conditions.
+================================================================================
